@@ -1,14 +1,10 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Pressable,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SignInSvgImage } from "../svg";
+import Input from "../components/common/input/Input";
+import Text from "../components/common/text/Text";
+import { colors } from "../theme/colors";
 
 export default function SignInScreen() {
   return (
@@ -18,40 +14,15 @@ export default function SignInScreen() {
       </View>
       <View>
         <Text
-          style={{
-            textAlign: "center",
-            fontWeight: "600",
-            fontSize: 14,
-            color: "#EDA249",
-          }}
+          preset="h4"
+          customStyle={{ color: colors.orange, textAlign: "center" }}
         >
           Never forget your notes
         </Text>
       </View>
       <View style={{ marginVertical: 30 }}>
-        <TextInput
-          placeholder="Email"
-          style={{
-            height: 40,
-            borderColor: "#EDA249",
-            borderBottomWidth: 0.5,
-            marginHorizontal: 25,
-            marginVertical: 10,
-            padding: 10,
-          }}
-        />
-        <TextInput
-          placeholder="Password"
-          secureTextEntry={true}
-          style={{
-            height: 40,
-            borderColor: "#EDA249",
-            borderBottomWidth: 0.5,
-            marginHorizontal: 25,
-            marginVertical: 10,
-            padding: 10,
-          }}
-        />
+        <Input placeholder="Email" customStyle={{ marginBottom: 20 }} />
+        <Input placeholder="Password" secureTextEntry={true} />
       </View>
       <View>
         <TouchableOpacity
@@ -85,6 +56,8 @@ export default function SignInScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginHorizontal: 25,
+    marginVertical: 10,
   },
   signInImage: {
     justifyContent: "center",
